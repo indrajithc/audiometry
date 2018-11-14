@@ -5,6 +5,7 @@ body {
     font-size: 16px;
     line-height: 1.8;
     font-family: 'Raleway', sans-serif;
+   background: white;
 }
 
 img {
@@ -12,6 +13,7 @@ img {
 	width:100px;
 	height:100px;
 }
+
 
 /*--------------------------------------------------------------
 # Links
@@ -52,8 +54,9 @@ a:hover, a:active {
     width: 100%;
     padding: 20px 0;
 }
+/*--------------------------------*/
 
-/*
+/*---------------------------------
 # Site Branding
 --------------------------------*/
 .site-branding {
@@ -744,6 +747,23 @@ ul.tabs-nav .tab-nav.active {
     max-width: 220px;
     margin: 24px auto !important;
 }
+/*
+# profile
+-------------------------------*/
+
+    .my_left{ float:left; height:auto; border:1px solid #998b8b; width:300px; }
+.my_left ul { float:left; width:100%; margin:0px; padding:0px; }
+.my_left ul li{ width:100%; color:#333333; list-style:none; float:left; }
+.my_left ul li a{ color:#333333;   padding:10px 0px; text-align:center; float:left; border-bottom:1px solid #999999; width:100%; background:#E9E9E9}
+.my_left ul li a:hover{ background:#CCCCCC; }
+
+/*---------------*/
+
+.my_right{ float:left; height:auto; border:1px solid #999999; width:300px; }
+.my_right ul { float:left; width:100%; margin:0px; padding:0px; }
+.my_right ul li{ width:100%; color:#333333; list-style:none; float:left; }
+.my_right ul li a{ color:#333333;   padding:10px 0px; text-align:center; float:left; border-bottom:1px solid #999999; width:100%; background:#E9E9E9}
+.my_right ul li a:hover{ background:#CCCCCC; }
 
 /*
 # Make an Appointment
@@ -1075,7 +1095,7 @@ ul.tabs-nav .tab-nav.active {
 .single-page .site-header {
     position: relative;
     padding: 220px 0 140px;
-    background-color: #f0f4f8;
+    background-color: white;
 }
 
 .single-page .site-header h1 {
@@ -1083,6 +1103,7 @@ ul.tabs-nav .tab-nav.active {
     font-size: 60px;
     font-weight: 600;
     color: #404040;
+    background-color: white;
 }
 
 .single-page .site-header .header-img {
@@ -1091,6 +1112,7 @@ ul.tabs-nav .tab-nav.active {
     right: 0;
     max-width: 65%;
     height: auto;
+    background-color: cornflowerblue;
 }
 
 /*--------------------------------------------------------------

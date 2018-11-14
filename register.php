@@ -7,7 +7,7 @@
 	$message = "";
 	//var_dump($_POST);
 	if( isset( $_POST['submit'] ) ) {
-
+        
 		$name = $_POST['name'];
 		$dob = $_POST['dob'];
         $gender = $_POST['gender'];
@@ -16,27 +16,30 @@
         $state = $_POST['state'];
         $email = $_POST['email'];
         $password = md5($_POST['password']);
-        
-    $sql = 'select * from t_register where uid = :uid';
+       
+    $sql = 'select * from t_register where email = :uid';
 		
-		$result = $db->display( $sql, array(':uid' => $uid) );
+		$result = $db->display( $sql, array(':uid' => $email) );
 
 		if( !$result ) {
 
 		$sql = 'insert into t_register( name, dob, gender,address, city, state, email, password )values(:name ,:dob, :gender, :address, :city, :state, :email,  :password )';
 			$params = array(':name'=>$name,':dob'=>$dob,':gender'=>$gender, ':address'=>$address, ':city'=>$city,':state'=>$state,':email'	=>	$email,':password'	=>	$password);
-           $result = $db->execute_query( $sql, $params );
-
+            
+            $result = $db->execute_query_return_id( $sql, $params );
+            
 			if( $result ) {
+               
                 $message = "User registration successfull!";
+                
 			} else {
 				$message = "Someting went wrong";
             }
-            
+          
 
-            $sql = 'insert into t_login( email, password ) values( :email,  :password )';
+            $sql = 'insert into t_login( uid, email, password ) values( :uid, :email,  :password )';
 			
-            $params=array(':email'=>$email,':password'=>$password);
+            $params=array(':uid' => $result, ':email'=>$email,':password'=>$password);
 			
             $result = $db->execute_query( $sql, $params );
 
@@ -51,8 +54,9 @@
 		} else {
 			$message = "Username not available";
 		}
-
-	}
+        
+    }
+  
 ?>
 
 
@@ -82,13 +86,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 d-flex flex-wrap justify-content-between align-items-center">
+                    
                         <div class="site-branding d-flex align-items-center">
-                            <a class="d-block" href="index.html" rel="home"><!--img class="d-block" src="images/logo.png" alt="logo"--></a>
+                        
+                            <a class="d-block" href="index.php" rel="home"><img class="d-block" src="images/logo.png" alt="logo"></a>
                         </div><!-- .site-branding -->
 
                         <nav class="site-navigation d-flex justify-content-end align-items-center">
                             <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-items-center">
-                                <li class="current-menu-item"><a href="index.html">Home</a></li>
+                                <li class="current-menu-item"><a href="index.php">Home</a></li>
                                 <li><a href="login.php">Login</a></li>
                                 <!--li><a href="services.html">Registration</a></li-->
                                 <li><a href="about.html">About</a></li>
@@ -111,9 +117,10 @@
 
         <div class="container">
             <div class="row">
+                
                 <div class="col-12">
-                    <!--h1>Register</h1-->
-
+                <h1> Audiometry</h1>
+                <h5><i> Enjoy Listening Everyday</i></h5>
                     <div class="breadcrumbs">
                         <ul class="d-flex flex-wrap align-items-center p-0 m-0">
                         <a class="button gradient-bg" href="about_hearing.html">About Hearing</a>
@@ -223,7 +230,7 @@
                         <tr>
                         	<td></td>
                             <td><input type="submit" name="submit" value="submit" class="button gradient-bg"></td>
-                        </tr>
+                        </tr><td> <?php echo "<div class='alert alert-primary' role='alert'>$message</div>"?></td>
                     </tbody></table>
               </form>
                           
@@ -521,7 +528,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                             <h2>Usefull Links</h2>
 
                             <ul class="p-0 m-0">
-                                <li><a href="index.html">HOME</a></li>
+                                <li><a href="index.php">HOME</a></li>
                                 <li><a href="about_hearing.html">ABOUT HEARING</a></li>
                                 <li><a href="about.html">ABOUT US</a></li>
                                 <li><a href="hearing_loss.php">HEARING LOSS</a></li>
