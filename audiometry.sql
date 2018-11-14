@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 03, 2018 at 12:16 AM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Host: 127.0.0.1
+-- Generation Time: Nov 14, 2018 at 11:06 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,7 +44,7 @@ CREATE TABLE `t_audiogram` (
 CREATE TABLE `t_login` (
   `uid` int(11) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(15) NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -52,7 +52,22 @@ CREATE TABLE `t_login` (
 --
 
 INSERT INTO `t_login` (`uid`, `email`, `password`) VALUES
-(1, 'mail@mail.com', '666');
+(22, 'anju@gmail.com', '9abfae448bc00ea3214033a3086e6539'),
+(7, 'f@gmail.com', 'fd2cc6c54239c40'),
+(8, 'hima@gmail.com', '514b0024591fa5b'),
+(9, 'fg@j.jhk', 'eea3877c54230f9'),
+(10, 'gg@jk.ggh', '2e65f2f2fdaf6c6'),
+(11, 'gg@hh.hh', '22c276a05aa7c90'),
+(12, 'h@th.dfg', '4eae18cf9e54a0f'),
+(13, 'd@gmail.com', '1c1d4df596d01da'),
+(14, 's@gg.ff', '7815696ecbf1c96'),
+(15, 'a@g.j', '76d80224611fc91'),
+(16, 'a@g.c', '2e65f2f2fdaf6c6'),
+(17, 'ad@hh.ff', '2e65f2f2fdaf6c6'),
+(18, 'd@d,f', '5ec91aac30eae62'),
+(19, 'a@w.k', 'a1d33d0dfec820b'),
+(20, 'fara@gmail.com', 'a67d56672f2b5fb'),
+(21, 'junu@gmail.com', 'b145cadb8fd87a0e664b8f10cde496dc');
 
 -- --------------------------------------------------------
 
@@ -89,9 +104,24 @@ CREATE TABLE `t_register` (
 --
 
 INSERT INTO `t_register` (`uid`, `name`, `dob`, `gender`, `address`, `city`, `state`, `email`, `password`) VALUES
-(1, 'fghj', '2018-10-23', 'Female', 'gh', 'ghjk', 'Karnataka', 'fgh@dfgh.ghj', 'd8578edf8458ce0'),
-(2, 'anju', '2018-11-13', 'Female', 'adf', 'ghj', 'Jharkhandr', 'art@gmail.com', '733d7be2196ff70'),
-(3, 'anju', '2018-11-13', 'Female', 'adf', 'ghj', 'Jharkhandr', 'art@gmail.com', 'acc4cfc07736957');
+(8, 'hima', '1996-03-01', 'Female', 'pala', 'pala', 'Kerala', 'hima@gmail.com', '514b0024591fa5b'),
+(7, 'hki', '2014-06-02', 'Male', 'f', 'g', 'Orissa', 'f@gmail.com', 'fd2cc6c54239c40'),
+(6, 'geetha', '2018-11-05', 'Female', 'tgn', 'ujn', 'Haryana', 'sdr@gmail.com', 'd8578edf8458ce0'),
+(5, 'arya', '2018-11-07', 'Female', 'fghj', 'hjkl', 'Manipur', 'ar@gmail.com', '9ed1c7f5119e63b'),
+(9, 'arta', '2018-11-06', 'Female', 'ghjk', 'tyu', 'Madya Pradesh', 'fg@j.jhk', 'eea3877c54230f9'),
+(10, 'fghj', '2018-11-08', 'Female', 'ghj', 'ghj', 'Karnataka', 'gg@jk.ggh', '2e65f2f2fdaf6c6'),
+(11, 'pl', '1996-08-05', 'Male', 'hj', 'j', 'Haryana', 'gg@hh.hh', '22c276a05aa7c90'),
+(12, 'fg', '1990-04-05', 'Male', 'jk', 'ewr', 'Goa', 'h@th.dfg', '4eae18cf9e54a0f'),
+(13, 'okm', '2010-05-05', 'Male', 'kk', 'jj', 'Jharkhandr', 'd@gmail.com', '1c1d4df596d01da'),
+(14, 'lk', '2000-04-05', 'Male', 'g', 'd', 'Haryana', 's@gg.ff', '7815696ecbf1c96'),
+(15, 'ok', '1999-09-08', 'Male', 'j', 'j', 'Nagaland', 'a@g.j', '76d80224611fc91'),
+(16, 'ijjnn', '1999-05-08', 'Male', 'g', 'h', 'Haryana', 'a@g.c', '2e65f2f2fdaf6c6'),
+(17, '123', '2018-11-01', 'Female', 'df', 'hh', 'Karnataka', 'ad@hh.ff', '2e65f2f2fdaf6c6'),
+(18, 'ff', '1999-08-05', 'Male', 'gg', 'aa', 'Goa', 'd@d,f', '5ec91aac30eae62'),
+(19, 'pl', '1999-06-07', 'Male', 'gg', 'as', 'Sikkim', 'a@w.k', 'a1d33d0dfec820b'),
+(20, 'fara', '1991-11-11', 'Female', 'p', 't', 'Haryana', 'fara@gmail.com', 'a67d56672f2b5fb'),
+(21, 'junu', '2001-02-05', 'Male', 'ju', 'nu', 'Kerala', 'junu@gmail.com', 'b145cadb8fd87a0'),
+(22, 'anju', '2018-11-30', 'Female', 'tvm', 'nedumangadu', 'Kerala', 'anju@gmail.com', '9abfae448bc00ea');
 
 -- --------------------------------------------------------
 
@@ -100,19 +130,36 @@ INSERT INTO `t_register` (`uid`, `name`, `dob`, `gender`, `address`, `city`, `st
 --
 
 CREATE TABLE `t_test` (
-  `test_id` int(11) NOT NULL,
+  `testid` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `outbox` varchar(20) NOT NULL,
+  `ear` varchar(20) NOT NULL,
   `125Hz` varchar(20) NOT NULL,
   `250Hz` varchar(20) NOT NULL,
   `500Hz` varchar(20) NOT NULL,
   `1KHz` varchar(20) NOT NULL,
   `2KHz` varchar(20) NOT NULL,
   `4KHz` varchar(20) NOT NULL,
-  `8KHz` varchar(20) NOT NULL,
-  `ear` varchar(20) NOT NULL,
-  `output` varchar(20) NOT NULL,
-  `u_id` int(20) NOT NULL,
-  `date` date NOT NULL
+  `8KHz` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `t_test`
+--
+
+INSERT INTO `t_test` (`testid`, `uid`, `date`, `outbox`, `ear`, `125Hz`, `250Hz`, `500Hz`, `1KHz`, `2KHz`, `4KHz`, `8KHz`) VALUES
+(31, 21, '2018-11-14', 'Speaker', '', '', '', '', '', '', '', ''),
+(29, 21, '2018-11-14', 'Speaker', '', '', '', '', '', '', '', ''),
+(21, 22, '2018-11-12', 'Speaker', 'Right', '40', '20', '30', '', '', '', ''),
+(22, 22, '2018-11-12', 'Speaker', 'Right', '40', '20', '30', '', '', '', ''),
+(23, 22, '2018-11-12', 'Speaker', 'Right', '40', '20', '30', '', '', '', ''),
+(24, 22, '2018-11-12', 'Headphone', 'Right', '40', '20', '30', '', '', '', ''),
+(25, 22, '2018-11-12', 'Headphone', 'Right', '40', '20', '30', '', '', '', ''),
+(30, 21, '2018-11-14', 'Speaker', '', '', '', '', '', '', '', ''),
+(26, 21, '2018-11-12', 'Speaker', 'Left', '0', '', '', '', '', '', ''),
+(27, 21, '2018-11-14', 'Speaker', 'Left', '0', '', '', '', '', '', ''),
+(28, 22, '2018-11-14', 'Headphone', 'Right', '40', '20', '30', '', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -148,8 +195,7 @@ ALTER TABLE `t_register`
 -- Indexes for table `t_test`
 --
 ALTER TABLE `t_test`
-  ADD PRIMARY KEY (`test_id`),
-  ADD KEY `u_id` (`u_id`);
+  ADD PRIMARY KEY (`testid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -171,16 +217,15 @@ ALTER TABLE `t_pta`
 -- AUTO_INCREMENT for table `t_register`
 --
 ALTER TABLE `t_register`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `t_test`
 --
 ALTER TABLE `t_test`
-  MODIFY `test_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `testid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-+
