@@ -61,6 +61,24 @@ class Database extends Exception {
 		
 	}
 	
+
+
+		// cust function new nr  added
+		public function execute_query_return_id( $sql, $array = NULL ) {
+			try {
+				$statement = $this->dbn->prepare($sql);
+				$big_data  = $statement->execute($array);
+				$retunrId = $this->dbn->lastInsertId(); 
+				if( $big_data ) {
+					return $retunrId;
+				} else {
+					return false;
+				}
+			}  catch (PDOException $e) {
+				echo '<script type="text/javascript">console.log("' .  ' Error: ' . $e->getMessage()  . '");</script>';
+			}
+		}
+			
 	public function display( $sql, $array = NULL ) {
 		
 		try {

@@ -1,3 +1,39 @@
+<?php
+include_once( 'connection.php' );
+
+$db = new Database();
+$error = "";
+//var_dump($_POST);
+session_start();
+
+//echo "123";
+//print_r($_POST);
+/*if( isset( $_POST['submit'] ) ) {
+    $email = $_POST['email'];
+	$password = $_POST['password'];
+    //print_r($_POST);*/
+   
+  $stmnt='select * from t_register where uid = :uid';
+ 
+  $params=array( 
+   ':uid'  =>   $_SESSION['uid']
+ );
+
+$data = $db->display($stmnt,$params);
+
+    $_SESSION['testid']=  $db->display($stmnt,$params)[0]['testid'];
+     
+
+if(isset($data[0])){
+    $data = $data[0];
+}
+//header('Location: step1.php');
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,8 +90,9 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <h1>Personal Details</h1>
+                <div class="col-12"><h1> Audiometry</h1>
+                <h5><i> Enjoy Listening Everyday</i></h5>
+                   
 
                      <div class="breadcrumbs">
                         <ul class="d-flex flex-wrap align-items-center p-0 m-0">
@@ -73,76 +110,93 @@
         <!--img class="header-img" src="images/about-bg.png" alt=""-->
     </header><!-- .site-header -->
 
-    <!--div class="med-history">
-        
-            <div class="row align-items-end"-->
-            <script>alert(values are Successful updated);</script>
-                    <div class="container">
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col-12">
+            
+        <h1>Personal Details</h1>
+
+
+
+
+
                         <div class="page_content">
-                                
+                        <div class="col-5 col-lg-3">
                                     <div class="my_left">
-                                            <div class="col-5 col-lg-6">
+                                    <center>      
                                         
                                     <ul>
-                                        <li><a href="edit_profile.php">EDIT PROFILE</a></li>
+                                        <li><a href="editprofile.php">EDIT PROFILE</a></li>
                                         <li><a href="edit_password.php">CHANGE PASSWORD</a></li>
                                        
                                         <li><a href="step1.php">TAKE TEST</a></li>
-                                        
+                       
                                         
                                     
                 
                                     </ul>
-                                <!--/div-->
+</center>
                                 </div>
-                                <div class="col-15 col-md-8 col-lg-20 mt-10 mt-md-15">
+                                </div>
+                        </div>
+                               
                                 
                                     <div class="my_right">
-                                            
-                                       <table width="610" height="536" style="text-align:center;" cellpadding="0" cellspacing="0">
+                                    <div class="col-15 col-md-8 col-lg-20 mt-10 mt-md-15">
+                                    <form name="form1" method="post" action="" >
+                                 
+                                    <table width="610" height="536" style="text-align:left;" cellpadding="0" cellspacing="0">
                                          <tr>
-                                            <td width="135">Name</td>
+                                            <td width="135">Name:<?php echo $data['name'];?></td>
                                             <td width=  "253"></td>
                                            </tr>
                                             <tr>
-                                            <td>dob</td>
+                                            <td>Dob:<?php echo $data['dob'];?></td>
                                             <td width="10"></td>
                                             </tr>
                                              <tr>
-                                            <td>Gender</td>
+                                            <td>Gender:<?php echo $data['gender'];?></td>
                                             <td></td>
                                              </tr>
                                              <tr>
-                                            <td>Address</td>
+                                            <td>Address:<?php echo $data['address'];?></td>
                                             <td></td>
                                         </tr>
                 
                                         <tr>
-                                            <td>City</td>
+                                            <td>City:<?php echo $data['city'];?></td>
                                             <td></td>
                                         </tr>
                                         <tr>
-                                            <td>State</td>
+                                            <td>State:<?php echo $data['state'];?></td>
                                             <td></td>
                                         </tr>
                                         <tr>
-                                            <td>Email</td>
+                                            <td>Email:<?php echo $data['email'];?></td>
                                             <td></td>
                                         </tr>
-                                        <tr>
-                
-                                                                    <td>Mobile</td>
-                
-                                                <td></td>
-                                        </tr>
+                                        
                                          </table>
-                
+                                         </form>
                                      </div>
-                                </div>  
-                             </div>
-                            </div>         
-                        </div>  
-                        </div>
+                          
+                         </div>
+
+
+
+        
+        </div>
+    </div>
+</div>
+
+    <!--div class="med-history">
+        
+            <div class="row align-items-end"-->
+            
+            <link href="style.css" rel="stylesheet" type="text/css" />
+
                     <!--h2>MedArt History</h2>
 
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Curabitur ut augue finibus, luctus tortor at, ornare erat. Nulla facilisi. Sed est risus, laoreet et quam non, viverra accumsan leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Curabitur ut augue finibus, luctus tortor at, ornare erat. </p>
